@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Let's Make A Difference</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Let's Make A Difference</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h2>Supporting Homeless and Underprivileged Youth</h2>
+            <p>Providing food, clothing, and essential support to those who need it most.</p>
+            <div class="hero-buttons">
+                <a href="donate.html" class="btn">Donate Now</a>
+                <a href="about.html" class="btn btn-outline">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="mission">
+        <div class="container">
+            <h2>Our Mission</h2>
+            <p>At Let's Make A Difference, we believe everyone deserves access to basic necessities. 
+               We work tirelessly to provide food, clothing, and support to homeless and underprivileged 
+               youth in our community. Through your generous donations and volunteer efforts, we can continue 
+               to make a meaningful impact in the lives of those who need it most.</p>
+            <div class="mission-stats">
+                <div class="stat-item fade-in">
+                    <div class="stat-number">5,000+</div>
+                    <div class="stat-label">Meals Served</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number">1,200+</div>
+                    <div class="stat-label">Youth Supported</div>
+                </div>
+                <div class="stat-item fade-in">
+                    <div class="stat-number">300+</div>
+                    <div class="stat-label">Volunteers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <h2>How We Help</h2>
+            <div class="section-intro">
+                <p>Our comprehensive approach addresses the immediate and long-term needs of homeless and underprivileged youth.</p>
+            </div>
+            <div class="service-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-utensils"></i></div>
+                    <h3>Food Distribution</h3>
+                    <p>We provide nutritious meals to those in need through our daily food programs, ensuring no youth goes hungry.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-tshirt"></i></div>
+                    <h3>Clothing Donations</h3>
+                    <p>We collect and distribute clothing to ensure everyone has proper attire for all seasons, maintaining dignity and comfort.</p>
+                </div>
+                <div class="service-card fade-in">
+                    <div class="service-icon"><i class="fas fa-hands-helping"></i></div>
+                    <h3>Support Services</h3>
+                    <p>We offer guidance and resources to help youth find stability, education opportunities, and pathways to independence.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="get-involved">
+        <div class="container">
+            <h2>Get Involved</h2>
+            <p>There are many ways you can help make a difference in someone's life. Join our community of supporters and volunteers today!</p>
+            <div class="involvement-options">
+                <div class="involvement-card fade-in">
+                    <div class="icon"><i class="fas fa-donate"></i></div>
+                    <h4>Make a Donation</h4>
+                    <p>Your financial support helps us provide essential services and resources.</p>
+                    <a href="donate.html" class="btn">Donate Now</a>
+                </div>
+                <div class="involvement-card fade-in">
+                    <div class="icon"><i class="fas fa-hands"></i></div>
+                    <h4>Volunteer With Us</h4>
+                    <p>Share your time and talents to directly impact the lives of youth in need.</p>
+                    <a href="contact.html#volunteer" class="btn">Join Our Team</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Let's Make A Difference</h3>
+                    <p>Supporting homeless and underprivileged youth since 2025.</p>
+                    <p>We believe every young person deserves a chance at a better future.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> adp_137@yahoo.com</p>
+                    <p><i class="fas fa-phone"></i> (248) 632-8182</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Macomb, Michigan</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/14Joa4M7ekn/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/lets_make_a_difference_2025/"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Let's Make A Difference. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Add scroll animation for header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Add animation to elements when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const fadeElements = document.querySelectorAll('.fade-in');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            fadeElements.forEach(element => {
+                element.style.opacity = 0;
+                element.style.transform = 'translateY(20px)';
+                element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>

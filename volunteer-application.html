@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Volunteer Application - Let's Make A Difference</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        .application-container {
+            max-width: 800px;
+            margin: 40px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        
+        .form-group input, 
+        .form-group textarea, 
+        .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 16px;
+        }
+        
+        .form-group textarea {
+            min-height: 150px;
+            resize: vertical;
+        }
+        
+        .checkbox-group {
+            margin-bottom: 20px;
+        }
+        
+        .checkbox-group label {
+            display: block;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+        
+        .checkbox-option {
+            margin-bottom: 8px;
+        }
+        
+        .checkbox-option input {
+            margin-right: 10px;
+        }
+        
+        .btn-submit {
+            padding: 12px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #3498db;
+            color: white;
+            border: none;
+            border-radius: 4px;
+        }
+        
+        .btn-submit:hover {
+            background-color: #2980b9;
+        }
+        
+        .print-instructions {
+            margin-top: 30px;
+            padding: 15px;
+            background-color: #f9f9f9;
+            border-radius: 5px;
+            text-align: center;
+        }
+        
+        .print-button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #2ecc71;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        
+        .print-button:hover {
+            background-color: #27ae60;
+        }
+        
+        @media print {
+            .no-print {
+                display: none;
+            }
+            
+            body {
+                font-size: 12pt;
+            }
+            
+            .application-container {
+                box-shadow: none;
+                margin: 0;
+                padding: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="no-print">
+        <div class="container">
+            <div class="logo">
+                <h1>Let's Make A Difference</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header no-print">
+        <div class="container">
+            <h2>Volunteer Application</h2>
+            <p>Thank you for your interest in volunteering with Let's Make A Difference.</p>
+        </div>
+    </section>
+
+    <div class="application-container">
+        <h2>Volunteer Application Form</h2>
+        <p>Please complete all fields below. Your information will be kept confidential.</p>
+        
+        <form id="volunteerForm">
+            <div class="form-group">
+                <label for="fullName">Full Name</label>
+                <input type="text" id="fullName" name="fullName" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" name="address" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="emergencyContact">Emergency Contact (Name & Phone)</label>
+                <input type="text" id="emergencyContact" name="emergencyContact" required>
+            </div>
+            
+            <div class="checkbox-group">
+                <label>Areas of Interest (Check all that apply)</label>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="foodDistribution" name="interests" value="foodDistribution">
+                    <label for="foodDistribution">Food Distribution</label>
+                </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="clothingDonations" name="interests" value="clothingDonations">
+                    <label for="clothingDonations">Clothing Donations</label>
+                </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="mentoring" name="interests" value="mentoring">
+                    <label for="mentoring">Youth Mentoring</label>
+                </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="fundraising" name="interests" value="fundraising">
+                    <label for="fundraising">Fundraising Events</label>
+                </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="administrative" name="interests" value="administrative">
+                    <label for="administrative">Administrative Support</label>
+                </div>
+            </div>
+            
+            <div class="checkbox-group">
+                <label>Availability (Check all that apply)</label>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="weekdayMornings" name="availability" value="weekdayMornings">
+                    <label for="weekdayMornings">Weekday Mornings</label>
+                </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="weekdayAfternoons" name="availability" value="weekdayAfternoons">
+                    <label for="weekdayAfternoons">Weekday Afternoons</label>
+                </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="weekdayEvenings" name="availability" value="weekdayEvenings">
+                    <label for="weekdayEvenings">Weekday Evenings</label>
+                </div>
+                <div class="checkbox-option">
+                    <input type="checkbox" id="weekends" name="availability" value="weekends">
+                    <label for="weekends">Weekends</label>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="skills">Special Skills or Qualifications</label>
+                <textarea id="skills" name="skills"></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="whyVolunteer">Why do you want to volunteer with Let's Make A Difference?</label>
+                <textarea id="whyVolunteer" name="whyVolunteer" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="heardAbout">How did you hear about our volunteer program?</label>
+                <input type="text" id="heardAbout" name="heardAbout">
+            </div>
+            
+            <div class="form-group no-print">
+                <button type="submit" class="btn-submit">Submit Application</button>
+            </div>
+        </form>
+        
+        <div class="print-instructions no-print">
+            <h3>How to Submit Your Application</h3>
+            <p>You can submit this form electronically by clicking the "Submit Application" button above and print it and email the completed form to adp_137@yahoo.com</p>
+            <button class="print-button" onclick="window.print()">Print This Form</button>
+        </div>
+    </div>
+
+    <footer class="no-print">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Let's Make A Difference</h3>
+                    <p>Supporting homeless and underprivileged youth since 2025.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p>Email: adp_137@yahoo.com</p>
+                    <p>Phone: 2486328182</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/14Joa4M7ekn/?mibextid=wwXIfr">Facebook</a>
+                        <a href="https://www.instagram.com/lets_make_a_difference_2025/">Instagram</a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Let's Make A Difference. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script src="email-handler.js"></script>
+    <script>
+        // The form submission is now handled by email-handler.js
+    </script>
+</body>
+</html>

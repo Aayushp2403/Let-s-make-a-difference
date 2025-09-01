@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate - Let's Make A Difference</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- EmailJS SDK -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <!-- Stripe JS -->
+    <script src="https://js.stripe.com/v3/"></script>
+    <style>
+        /* Custom styles for donation page */
+        .page-header {
+            background-image: linear-gradient(135deg, rgba(78, 84, 200, 0.85), rgba(143, 148, 251, 0.85)), url('https://source.unsplash.com/random/1600x900/?charity,giving');
+            background-size: cover;
+            background-position: center;
+            color: var(--light-text);
+            text-align: center;
+            padding: 100px 20px 120px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+        
+        .page-header:before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 80px;
+            background: var(--background-light);
+            clip-path: ellipse(50% 60% at 50% 100%);
+        }
+        
+        .page-header h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--light-text);
+            font-weight: 700;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .page-header h2:after {
+            display: none;
+        }
+        
+        .page-header p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--light-text);
+        }
+        
+        .donation-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .donation-card {
+            background-color: var(--background-white);
+            padding: 40px 30px;
+            border-radius: 15px;
+            box-shadow: var(--shadow-light);
+            text-align: center;
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .donation-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 0;
+            background: linear-gradient(135deg, var(--primary-light) 0%, var(--primary-color) 100%);
+            opacity: 0.1;
+            transition: var(--transition);
+            z-index: -1;
+        }
+        
+        .donation-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-medium);
+        }
+        
+        .donation-card:hover:before {
+            height: 100%;
+        }
+        
+        .donation-card h4 {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 15px;
+        }
+        
+        .donation-card h4:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 2px;
+            background: var(--accent-color);
+        }
+        
+        .donation-card .icon {
+            font-size: 2.5rem;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        
+        /* Stripe element styles */
+        .form-control {
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: white;
+            height: 40px;
+            transition: var(--transition);
+        }
+        
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(78, 84, 200, 0.2);
+            outline: none;
+        }
+        
+        .error-message {
+            color: #dc3545;
+            font-size: 14px;
+            margin-top: 5px;
+            min-height: 20px;
+        }
+        
+        /* Disable the submit button while processing */
+        .btn-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+        
+        /* Secure payment badge */
+        .secure-badge {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .secure-badge i {
+            color: var(--secondary-color);
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Let's Make A Difference</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="donate.html" class="active">Donate</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h2>Make a Donation</h2>
+            <p>Your support helps us provide essential services to homeless and underprivileged youth. Every contribution, no matter the size, makes a real difference in someone's life.</p>
+        </div>
+    </section>
+
+    <section class="donation-content">
+        <div class="container">
+            <div class="section-intro fade-in">
+                <h2>Ways to Give</h2>
+                <p>Your generosity makes our work possible. Choose the donation option that works best for you:</p>
+            </div>
+            
+            <div class="donation-options">
+                <div class="donation-card fade-in">
+                    <div class="icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h4>One-Time Donation</h4>
+                    <p>Make an immediate impact with a one-time gift of any amount. Your contribution will directly support our programs.</p>
+                    <a href="#donate-form" class="btn">Donate Now</a>
+                </div>
+                <div class="donation-card fade-in">
+                    <div class="icon"><i class="fas fa-calendar-check"></i></div>
+                    <h4>Monthly Giving</h4>
+                    <p>Become a sustaining supporter with a recurring monthly donation. Help us plan for the future with reliable support.</p>
+                    <a href="#donate-form" class="btn">Become a Monthly Donor</a>
+                </div>
+                <div class="donation-card fade-in">
+                    <div class="icon"><i class="fas fa-box-open"></i></div>
+                    <h4>In-Kind Donations</h4>
+                    <p>Donate clothing, food, or other essential items directly to our center. Material goods help us serve immediate needs.</p>
+                    <a href="contact.html" class="btn">Learn More</a>
+                </div>
+            </div>
+            
+            <div class="impact-section fade-in">
+                <h3>Your Impact</h3>
+                <p>Here's how your donation can help make a real difference:</p>
+                <ul>
+                    <li><strong>$25</strong> provides a meal for 10 youth</li>
+                    <li><strong>$50</strong> supplies basic hygiene kits for 5 individuals</li>
+                    <li><strong>$100</strong> provides clothing for 3 youth</li>
+                    <li><strong>$250</strong> supports a week of programming</li>
+                    <li><strong>$500</strong> helps provide emergency shelter assistance</li>
+                </ul>
+            </div>
+            
+            <div class="donation-form fade-in" id="donate-form">
+                <h3>Donation Form</h3>
+                <p>All donations are tax-deductible. You will receive a receipt for your records via email after your donation is processed.</p>
+                
+                <form id="donation-form">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="amount">Donation Amount</label>
+                        <select id="amount" name="amount">
+                            <option value="25">$25</option>
+                            <option value="50">$50</option>
+                            <option value="100">$100</option>
+                            <option value="250">$250</option>
+                            <option value="500">$500</option>
+                            <option value="other">Other Amount</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group" id="other-amount" style="display: none;">
+                        <label for="custom-amount">Enter Amount</label>
+                        <input type="number" id="custom-amount" name="custom-amount" min="1">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="frequency">Donation Frequency</label>
+                        <select id="frequency" name="frequency">
+                            <option value="one-time">One-Time</option>
+                            <option value="monthly">Monthly</option>
+                        </select>
+                    </div>
+                    
+                    <!-- Stripe Elements Placeholder -->
+                    <div class="form-group">
+                        <label for="card-element">Credit or Debit Card</label>
+                        <div id="card-element" class="form-control">
+                            <!-- A Stripe Element will be inserted here. -->
+                        </div>
+                        <!-- Used to display form errors. -->
+                        <div id="card-errors" role="alert" class="error-message"></div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-submit">Complete Donation</button>
+                    <div id="payment-message" class="form-note" style="display: none;"></div>
+                    <div class="secure-badge">
+                        <i class="fas fa-lock"></i> Your payment information is securely processed by Stripe.
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Let's Make A Difference</h3>
+                    <p>Supporting homeless and underprivileged youth since 2025.</p>
+                    <p>We believe every young person deserves a chance at a better future.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> adp_137@yahoo.com</p>
+                    <p><i class="fas fa-phone"></i> 2486328182</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Macomb, Michigan</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/14Joa4M7ekn/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/lets_make_a_difference_2025/"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Let's Make A Difference. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script src="email-handler.js"></script>
+    <script src="payment-handler.js"></script>
+    <script>
+        // Show/hide other amount field based on selection
+        document.getElementById('amount').addEventListener('change', function() {
+            const otherAmountDiv = document.getElementById('other-amount');
+            if (this.value === 'other') {
+                otherAmountDiv.style.display = 'block';
+            } else {
+                otherAmountDiv.style.display = 'none';
+            }
+        });
+        
+        // Add scroll animation for header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Smooth scroll to donation form when clicking donation buttons
+        document.querySelectorAll('a[href="#donate-form"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
