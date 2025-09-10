@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Impact - Let's Make A Difference</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">
+                <h1>Let's Make A Difference</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html">About Us</a></li>
+                    <li><a href="blog.html" class="active">Our Impact</a></li>
+                    <li><a href="donate.html">Donate</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero blog-hero">
+        <div class="hero-content">
+            <h2>Our Impact in Action</h2>
+            <p>See how your support is making a real difference in the lives of homeless and underprivileged youth.</p>
+        </div>
+    </section>
+
+    <section class="blog-content">
+        <div class="container">
+            <div class="blog-intro">
+                <h2>Stories from the Field</h2>
+                <p>Every day, we witness the power of community support and compassion. These photos capture moments of hope, transformation, and the incredible impact we're making together in our community.</p>
+            </div>
+
+            <div class="photo-blog">
+                <article class="blog-post">
+                    <div class="blog-image">
+                        <img src="images/imageOne.png" alt="Community outreach and support programs">
+                    </div>
+                    <div class="blog-content-text">
+                        <h3>Building Stronger Communities</h3>
+                        <p class="blog-date"><i class="fas fa-calendar"></i> March 2025</p>
+                        <p>Our community outreach programs continue to expand, reaching more families and individuals in need. This photo captures one of our weekly food distribution events where volunteers work tirelessly to ensure no one goes hungry. The smiles and gratitude we see remind us why this work is so important.</p>
+                        <p>Through partnerships with local businesses and the dedication of our volunteers, we've been able to provide over 5,000 meals to those who need them most. Each meal represents hope, dignity, and the knowledge that someone cares.</p>
+                    </div>
+                </article>
+
+                <article class="blog-post">
+                    <div class="blog-image">
+                        <img src="images/imageTwo.png" alt="Youth assistance and empowerment programs">
+                    </div>
+                    <div class="blog-content-text">
+                        <h3>Empowering Our Youth</h3>
+                        <p class="blog-date"><i class="fas fa-calendar"></i> February 2025</p>
+                        <p>Young people are the future of our community, and investing in them today creates lasting change for tomorrow. This image showcases our youth empowerment program, where we provide not just basic necessities, but also mentorship, educational support, and life skills training.</p>
+                        <p>We've helped over 1,200 youth find stability and direction in their lives. From providing school supplies to offering career guidance, we're committed to helping every young person reach their full potential and break the cycle of homelessness.</p>
+                    </div>
+                </article>
+
+                <article class="blog-post">
+                    <div class="blog-image">
+                        <img src="images/imageThree.jpg" alt="Community impact and volunteer efforts">
+                    </div>
+                    <div class="blog-content-text">
+                        <h3>The Power of Volunteers</h3>
+                        <p class="blog-date"><i class="fas fa-calendar"></i> January 2025</p>
+                        <p>None of our work would be possible without the incredible dedication of our volunteers. This photo represents the heart of our organization - people from all walks of life coming together to serve others. Our volunteer family has grown to over 300 amazing individuals who give their time, energy, and hearts to this cause.</p>
+                        <p>From organizing clothing drives to preparing meals, from providing transportation to offering emotional support, our volunteers are the backbone of everything we do. Their commitment to making a difference inspires us every day and multiplies our impact throughout the community.</p>
+                    </div>
+                </article>
+            </div>
+
+            <div class="call-to-action">
+                <h3>Be Part of Our Story</h3>
+                <p>Every photo tells a story of hope, and every story is made possible by supporters like you. Join us in creating more moments of transformation and impact.</p>
+                <div class="cta-buttons">
+                    <a href="donate.html" class="btn">Make a Donation</a>
+                    <a href="contact.html" class="btn btn-outline">Volunteer With Us</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Let's Make A Difference</h3>
+                    <p>Supporting homeless and underprivileged youth since 2025.</p>
+                    <p>We believe every young person deserves a chance at a better future.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> adp_137@yahoo.com</p>
+                    <p><i class="fas fa-phone"></i> (248) 632-8182</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Macomb, Michigan</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Follow Us</h3>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/share/14Joa4M7ekn/?mibextid=wwXIfr"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/lets_make_a_difference_2025/"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Let's Make A Difference. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Add scroll animation for header
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+        
+        // Add animation to blog posts when they come into view
+        document.addEventListener('DOMContentLoaded', function() {
+            const blogPosts = document.querySelectorAll('.blog-post');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = 1;
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            blogPosts.forEach(post => {
+                post.style.opacity = 0;
+                post.style.transform = 'translateY(30px)';
+                post.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                observer.observe(post);
+            });
+        });
+    </script>
+</body>
+</html>
