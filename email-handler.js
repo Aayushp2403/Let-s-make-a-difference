@@ -35,7 +35,7 @@
             email: form.email.value,
             subject: form.subject.value,
             message: form.message.value,
-            to_email: "adp_137@yahoo.com"
+            to_email: "letsmakeadifference4u@gmail.com"
         };
         
         // Send the email
@@ -86,7 +86,7 @@
             skills: form.skills.value,
             whyVolunteer: form.whyVolunteer.value,
             heardAbout: form.heardAbout.value,
-            to_email: "adp_137@yahoo.com"
+            to_email: "letsmakeadifference4u@gmail.com"
         };
         
         // Send the email
@@ -130,7 +130,7 @@
             email: form.email.value,
             amount: '$' + donationAmount,
             frequency: form.frequency.value,
-            to_email: "adp_137@yahoo.com"
+            to_email: "letsmakeadifference4u@gmail.com"
         };
         
         // Send the email

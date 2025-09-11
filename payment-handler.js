@@ -173,7 +173,7 @@
             email: email,
             amount: '$' + amount,
             frequency: frequency,
-            to_email: "adp_137@yahoo.com",
+            to_email: "letsmakeadifference4u@gmail.com",
             payment_id: paymentId || 'PAYMENT-' + Math.random().toString(36).substring(2, 10).toUpperCase()
         };
         
