@@ -79,7 +79,6 @@
             email: form.email.value,
             phone: form.phone.value,
             address: form.address.value,
-            dob: form.dob.value,
             emergencyContact: form.emergencyContact.value,
             interests: interests,
             availability: availability,
