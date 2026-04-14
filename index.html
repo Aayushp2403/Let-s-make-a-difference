@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Let's Make A Difference</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -14,6 +14,11 @@
             <div class="logo">
                 <h1>Let's Make A Difference</h1>
             </div>
+            <button class="menu-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
             <nav>
                 <ul>
                     <li><a href="index.html" class="active">Home</a></li>
@@ -40,9 +45,9 @@
     <section class="mission">
         <div class="container">
             <h2>Our Mission</h2>
-            <p>At Let's Make A Difference, we believe everyone deserves access to basic necessities. 
-               We work tirelessly to provide food, clothing, and support to homeless and underprivileged 
-               youth in our community. Through your generous donations and volunteer efforts, we can continue 
+            <p>At Let's Make A Difference, we believe everyone deserves access to basic necessities.
+               We work tirelessly to provide food, clothing, and support to homeless and underprivileged
+               youth in our community. Through your generous donations and volunteer efforts, we can continue
                to make a meaningful impact in the lives of those who need it most.</p>
             <div class="mission-stats">
                 <div class="stat-item fade-in">
@@ -138,37 +143,5 @@
     </footer>
 
     <script src="script.js"></script>
-    <script>
-        // Add scroll animation for header
-        window.addEventListener('scroll', function() {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.classList.add('scrolled');
-            } else {
-                header.classList.remove('scrolled');
-            }
-        });
-        
-        // Add animation to elements when they come into view
-        document.addEventListener('DOMContentLoaded', function() {
-            const fadeElements = document.querySelectorAll('.fade-in');
-            
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.opacity = 1;
-                        entry.target.style.transform = 'translateY(0)';
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            fadeElements.forEach(element => {
-                element.style.opacity = 0;
-                element.style.transform = 'translateY(20px)';
-                element.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-                observer.observe(element);
-            });
-        });
-    </script>
 </body>
 </html>
